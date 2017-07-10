@@ -1,0 +1,154 @@
+@import '../../utils/colors';
+
+$block: 'autocomplete';
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+@mixin selection {
+	&::selection {@content}
+	&::-moz-selection {@content}
+}
+
+.#{$block} {
+	font: 14px 'Segoe UI';
+	color: $fontColor;
+	line-height: 20px;
+	
+	&__input {
+		width: 250px;
+		padding: 5px 5px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: $borderTopColor $borderColor $borderColor;
+		font: inherit;
+		color: inherit;
+		outline: none;
+		box-sizing: border-box;
+
+		@include placeholder {
+			color: $placeholderFontColor;
+		}
+
+		@include selection {
+			background: $selectionColor;
+		}
+
+		&:hover {
+			border-color: $borderTopColorHover $borderColor $borderColor;
+		}
+
+		&:focus {
+			@include placeholder {
+				color: $placeholderFontColorFocus;
+			}
+			outline-style: solid;
+			outline-color: $outlineColorFocus;
+			outline-width: 2px;
+			outline-offset: -2px;
+		}
+
+		&:disabled {
+
+		}
+
+		&--filled-in {
+
+		}
+
+		&--error {
+			outline-style: solid;
+			outline-color: $errorColor;
+			outline-width: 2px;
+			outline-offset: -2px;
+
+			&:focus {
+				outline-color: $errorColor;
+			}
+		}
+
+		&--warning{
+
+		}
+	}
+
+	&__loader {
+		position: absolute;
+		left: 238px;
+		top: 18px;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	&__dropdown {
+		width: 357px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: $borderColor;
+		margin-top: 2px;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	&__dropdown-list {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__dropdown-total-label {
+		font-size: 12px;
+		color: $totalLabelFontColor;
+		padding: 5px 5px;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	&__dropdown-option {
+		padding: 10px 5px;
+		cursor: default;
+
+		&--selected{
+			background-color: $selectedOptionBackgroundColor;
+			color: $selectedOptionFontColor;
+		}
+	}
+
+	&__dropdown-message {
+		padding: 5px 5px;
+		color: $dropdownMessageFontColor;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	&__dropdown-message-option {
+		padding: 5px 5px;
+		background-color: $selectedOptionBackgroundColor;
+		color: $selectedOptionFontColor;
+		cursor: default;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	&__message-label {
+		width: 250px;
+
+		&--hidden {
+			display: none;
+		}
+	}
+}

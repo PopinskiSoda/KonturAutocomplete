@@ -1,0 +1,15 @@
+@import '../../utils/colors';
+
+$block: 'message-label';
+
+.#{$block} {
+	padding: 5px 2px;
+
+	&--error {
+		color: $errorColor
+	}
+
+	&--hidden {
+		display: none;
+	}
+}
