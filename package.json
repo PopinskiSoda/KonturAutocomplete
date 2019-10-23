@@ -15,7 +15,7 @@
   "dependencies": {
     "express": "^4.15.3",
     "immutable": "^3.8.1",
-    "mongoose": "^4.10.5",
+    "mongoose": "^5.7.6",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-bem-helper": "^1.4.1",
